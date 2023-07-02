@@ -25,7 +25,7 @@ Instructions to setup & run the app:
 
 
                         Or
-just use the keyboard shortcut ctrl + R to run Init.java
+just use the keyboard shortcut ctrl + R to run Init.java. This should start the web server.
 
 ### Once the app is up and running test the application:
 
