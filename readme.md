@@ -84,6 +84,6 @@ which should return a JSON having an id.
    
 5. replace the {id} from the url with the receipt id which should return the receipt's corresponding points.
 
-##### Unit tests are provided and can be executed to test.
+### Unit tests are provided and can be executed to test.
 
 
