@@ -50,7 +50,9 @@ just use the keyboard shortcut ctrl + R to run Init.java
 
 ### Using Curl
 1. Download and install Curl (https://curl.se/download.html)
-2. To call the /receipts/process end point enter this command in the command line: curl -d '{"retailer": "Target",
+2. To call the /receipts/process end point enter this command in the command line:
+
+   curl -d '{"retailer": "Target",
    "purchaseDate": "2022-01-01",
    "purchaseTime": "13:01",
    "items": [
@@ -75,9 +77,12 @@ just use the keyboard shortcut ctrl + R to run Init.java
    }' -H 'Content-Type: application/json'  http://localhost:7002/receipts/process
    
 which should return a JSON having an id.
+
 3. To call the /receipts/{id}/points endpoint enter this command in the command line:
+   
    curl -v http://localhost:7002/receipts/{id}/points
-4. replace the {id} from the url with the receipt id which should return the receipts corresponding points.
+   
+5. replace the {id} from the url with the receipt id which should return the receipt's corresponding points.
 
 ##### Unit tests are provided and can be executed to test.
 
