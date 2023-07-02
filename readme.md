@@ -1,6 +1,6 @@
 # Receipt Processor
 
-This is a webservice that has API endpoints to process a given receipt and assign points to it according to some rules. Java and Javalin is used to implement the API. Since my mac is not able to support docker due to some versioning issue, I am unable to work with
+This is a webservice that has API endpoints to process a given receipt and assign points to it according to some preset rules. Java and Javalin is used to implement the API. 
 
 Instructions to setup & run the app:
 
@@ -26,7 +26,7 @@ Instructions to setup & run the app:
                         Or
 just use the keyboard shortcut ctrl + R to run Init.java
 
-Once the app is up and running to test the application using
+### Once the app is up and running test the application:
 
 ### Using Postman
 1. Download and install Postman (https://www.postman.com/downloads/)
@@ -36,7 +36,7 @@ Once the app is up and running to test the application using
 4. You can see the result in the response body, which should return a JSON body having an id.
 ![](/Users/aakritisingh/Desktop/Screen Shot 2023-07-02 at 9.00.35 AM.png)
 5. Copy the id and replace it in the place of id in this URL: http://localhost:7002/receipts/{id}/points
-6. Copy the above URL and enter it, change the method to get, click on run.
+6. Copy the above URL and enter it, change the method to GET and click Send.
 ![](/Users/aakritisingh/Desktop/Screen Shot 2023-07-02 at 9.08.06 AM.png)
 7. The response should be a JSON body containing counts
 ![](/Users/aakritisingh/Desktop/Screen Shot 2023-07-02 at 9.09.26 AM.png)
@@ -70,5 +70,7 @@ which should return a JSON having an id.
 3. To call the /receipts/{id}/points endpoint enter this command in the command line:
    curl -v http://localhost:7002/receipts/{id}/points
 4. replace the {id} from the url with the receipt id which should return the receipts corresponding points.
+
+##### Unit tests are provided and can be executed to test.
 
 
