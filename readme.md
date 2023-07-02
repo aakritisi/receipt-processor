@@ -33,16 +33,16 @@ just use the keyboard shortcut ctrl + R to run Init.java
 1. Download and install Postman (https://www.postman.com/downloads/)
 2. Setup postman (https://learning.postman.com/docs/getting-started/navigating-postman/)
 3. Change the method type to POST and enter URL: http://localhost:7002/receipts/process ,add the JSON body inside the body tab and click on send.
-4. ![Screen Shot 2023-07-02 at 8 59 09 AM](https://github.com/aakritisi/receipt-processor/assets/25239393/4142eecc-0a61-4754-9f83-918cb26f8486)
+ ![Screen Shot 2023-07-02 at 8 59 09 AM](https://github.com/aakritisi/receipt-processor/assets/25239393/4142eecc-0a61-4754-9f83-918cb26f8486)
 
-5. You can see the result in the response body, which should return a JSON body having an id.
+4. You can see the result in the response body, which should return a JSON body having an id.
 ![Screen Shot 2023-07-02 at 9 00 35 AM](https://github.com/aakritisi/receipt-processor/assets/25239393/fc9614d3-433d-4b2c-92d8-335e0773ac2e)
 
-7. Copy the id and replace it in the place of id in this URL: http://localhost:7002/receipts/{id}/points
-8. Copy the above URL and enter it, change the method to GET and click Send.
+5. Copy the id and replace it in the place of id in this URL: http://localhost:7002/receipts/{id}/points
+6. Copy the above URL and enter it, change the method to GET and click Send.
 ![Screen Shot 2023-07-02 at 9 08 06 AM](https://github.com/aakritisi/receipt-processor/assets/25239393/2d4a2f5e-47d7-4bfb-82b1-315762f81cc4)
 
-9. The response should be a JSON body containing points
+7. The response should be a JSON body containing points
 ![Screen Shot 2023-07-02 at 9 09 26 AM](https://github.com/aakritisi/receipt-processor/assets/25239393/ffb229fc-c381-42dd-a1e7-5f7f4cc2bf86)
 
 
@@ -73,9 +73,9 @@ just use the keyboard shortcut ctrl + R to run Init.java
    }' -H 'Content-Type: application/json'  http://localhost:7002/receipts/process
    
 which should return a JSON having an id.
-4. To call the /receipts/{id}/points endpoint enter this command in the command line:
+3. To call the /receipts/{id}/points endpoint enter this command in the command line:
    curl -v http://localhost:7002/receipts/{id}/points
-5. replace the {id} from the url with the receipt id which should return the receipts corresponding points.
+4. replace the {id} from the url with the receipt id which should return the receipts corresponding points.
 
 ##### Unit tests are provided and can be executed to test.
 
