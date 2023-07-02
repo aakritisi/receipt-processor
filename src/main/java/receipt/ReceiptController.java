@@ -1,10 +1,7 @@
 package receipt;
 
-
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
-import io.javalin.plugin.openapi.annotations.*;
-import receipt.models.ErrorResponse;
 import receipt.models.IDResponse;
 import receipt.models.PointsResponse;
 import receipt.models.Receipt;
@@ -13,41 +10,13 @@ import receipt.models.Receipt;
 // This is a controller, it contains the logic related to client/server
 public class ReceiptController {
 
-    @OpenApi(
-            summary = "Process Receipt",
-            operationId = "process",
-            path = "/receipts/process",
-            method = HttpMethod.POST,
-            tags = {"receipt"},
-            requestBody = @OpenApiRequestBody(content = {@OpenApiContent(from = Receipt.class)}),
-            responses = {
-                    @OpenApiResponse(status = "201", content = {@OpenApiContent(from = String.class)}),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
-    )
-
     public static void process(Context ctx) {
         Receipt receipt = ctx.bodyAsClass(Receipt.class);
-        System.out.println(receipt.retailer);
         validateReceiptJson(receipt);
         IDResponse id = ReceiptService.processReceipt(receipt);
         ctx.json(id);
 
     }
-
-    @OpenApi(
-            summary = "Get points by receipt ID",
-            operationId = "getPoints",
-            path = "/receipts/{id}/points",
-            method = HttpMethod.GET,
-            pathParams = {@OpenApiParam(name = "id", description = "Receipt ID")},
-            tags = {"receipt"},
-            responses = {
-                    @OpenApiResponse(status = "200", content = {@OpenApiContent(from = Integer.class)}),
-                    @OpenApiResponse(status = "400", content = {@OpenApiContent(from = ErrorResponse.class)}),
-                    @OpenApiResponse(status = "404", content = {@OpenApiContent(from = ErrorResponse.class)})
-            }
-    )
 
     public static void getPoints(Context ctx) {
         PointsResponse pointsResponse = ReceiptService.getPointsById(ctx.pathParamAsClass("id", String.class).get());

@@ -18,7 +18,7 @@ public class ReceiptService {
         String uuid = UUID.randomUUID().toString();
         int points = 0;
         String retailer = receipt.retailer;
-        Float total = Float.valueOf( receipt.total );
+        float total = Float.parseFloat(receipt.total);
         ArrayList<Item> items = receipt.items;
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd" );
         Date purchaseDate = null;
@@ -55,11 +55,9 @@ public class ReceiptService {
          if true multiply the corresponding price by 0.2 and round up to the nearest integer.
          Finally, adds the resulting value to the points.
          */
-        for(int i=0; i<items.size(); i++)
-        {
-            if(items.get(i).shortDescription.trim().length()%3 == 0)
-            {
-                points += Math.round(Float.valueOf(items.get(i).price)*0.2);
+        for (Item item : items) {
+            if (item.shortDescription.trim().length() % 3 == 0) {
+                points += Math.round(Float.parseFloat(item.price) * 0.2);
             }
         }
 
@@ -73,14 +71,12 @@ public class ReceiptService {
             points += 10;
         }
         receiptPoints.put(uuid,points);
-        IDResponse res = new IDResponse(uuid);
-        return res;
+        return new IDResponse(uuid);
     }
 
     // Returns points corresponding to the receipt id
     public static PointsResponse getPointsById(String id) {
-        PointsResponse pointsResponse = new PointsResponse(receiptPoints.get(id));
-        return pointsResponse;
+        return new PointsResponse(receiptPoints.get(id));
     }
 
 
